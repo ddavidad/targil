@@ -17,7 +17,8 @@ function FolderRow(props) {
       name={props.name}
       type={props.type}
       onRowClick={handleFolderClick}
-      onContextClick={handleFolderContextClick} />
+      onContextClick={handleFolderContextClick}
+      onDelete={props.onDelete} />
   );
 }
 export default FolderRow;

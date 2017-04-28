@@ -14,6 +14,10 @@ function Directory(props) {
     alert("unimplemented method : handleFileClick");
   }
 
+  function handleItemDelete(name){
+    props.onItemDelete(name)
+  }
+
   function createItemList(){
     var items = [];
 
@@ -22,7 +26,9 @@ function Directory(props) {
     type={item.type}
     children={item.children}
     key={i}
-    onRowClick={handleFolderClick}/>) 
+    onRowClick={handleFolderClick}
+    onDelete={handleItemDelete} />)
+    
     
     :
     
@@ -31,6 +37,7 @@ function Directory(props) {
     children={item.children}
     key={i}
     onRowClick={handleFileClick}
+    onDelete={handleItemDelete} 
     />));
 
     return items;
@@ -43,6 +50,7 @@ function Directory(props) {
           <tr>
             <th>Name</th>
             <th>Type</th>
+            <th>delete</th>
           </tr>
         </thead>
         <tbody>

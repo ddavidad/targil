@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Title () {
+function Title() {
     return (
         <h1 className="greeting">Hello Finder (ish ;P) !</h1>
     );

@@ -5,7 +5,7 @@ import Finder from './components/finder'
 
 class App extends Component {
     render() {
-        var data = require('./components/data.json');
+        var data = require('./components/data2.json');
 
         return (
             <div className="App">
@@ -14,7 +14,7 @@ class App extends Component {
                 </div>
                 <Finder root={data}/>
                     
-            </div>
+            </div> 
         );
     }
 }
