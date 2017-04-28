@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Title extends Component {
-  render() {
+function Title () {
     return (
         <h1 className="greeting">Hello Finder (ish ;P) !</h1>
     );
-  }
 }
 
 export default Title;

@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import Directory from './directory';
-import PathDisplay from './pathDisplay';
+import PathView from './pathView';
 import SearchBar from './search';
 import {getItem, goDown, goUp} from './pathCommon';
+import {flatten} from './pathCommon';
+
 
 class Finder extends Component {
 
@@ -17,11 +19,10 @@ class Finder extends Component {
             .handleNewPath
             .bind(this);
 
-            this.handleUpMove = this
+        this.handleUpMove = this
             .handleUpMove
             .bind(this);
 
-        this.props = props;
         this.state = {
             root: props.root,
             path: "/"
@@ -32,24 +33,22 @@ class Finder extends Component {
         this.handleNewPath(goDown(this.state.path, itemName));
     }
 
-    handleUpMove(steps){
+    handleUpMove(steps) {
         this.handleNewPath(goUp(this.state.path, steps));
     }
 
     handleNewPath(newPath) {
         this.setState({path: newPath});
     }
-
+    
     render() {
 
         return (
             <div>
-                <SearchBar/>
-                <PathDisplay path={this.state.path} goUp={this.handleUpMove} goTo={this}/>
+                <SearchBar inline items={flatten(this.props.root)} onFind={this.handleNewPath}/>
+                <PathView inline path={this.state.path} goUp={this.handleUpMove}/>
                 <Directory
-                    items={
-                    getItem(this.state.root, this.state.path)
-                    .children}
+                    items={getItem(this.state.root, this.state.path).children}
                     onPathIncrement={this.handlePathIncrement}/>
             </div>
         );

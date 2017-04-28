@@ -31,3 +31,20 @@ export function goUp(path, steps){
 
     return newPath + "/";
 }
+
+export function flatten(root){
+        var result = {};
+    function recurse(cur, path) {
+      if (cur !== null) {
+        result[cur.name] = path;
+      }
+      if (Array.isArray(cur.children)) {
+        for (var i = 0; i < cur.children.length; i++) 
+          recurse(cur.children[i], cur.children[i].type === "folder"
+            ? (path + cur.children[i].name + "/")
+            : (path + cur.children[i].name));
+        }
+      }
+    recurse(root, "/");
+    return result;
+}
