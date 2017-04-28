@@ -38,14 +38,14 @@ class Finder extends Component {
     }
 
     handleNewPath(newPath) {
-        this.setState({path: newPath});
+        this.setState((prevState, props) => {
+  return {path:  newPath};
+});
     }
-    
     render() {
-
         return (
             <div>
-                <SearchBar inline items={flatten(this.props.root)} onFind={this.handleNewPath}/>
+                <SearchBar inline items={flatten(this.props.root)}/>
                 <PathView inline path={this.state.path} goUp={this.handleUpMove}/>
                 <Directory
                     items={getItem(this.state.root, this.state.path).children}

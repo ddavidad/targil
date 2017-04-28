@@ -26,5 +26,4 @@ function PathView(props) {
     </ul>
   );
 }
-
 export default PathView;

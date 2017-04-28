@@ -8,7 +8,8 @@ function SearchBar(props) {
   function onSearch(e) {
     if (e.target.children[0].children[0].value in props.items) {
 
-      props.onFind(props.items[e.target.children[0].children[0].value]);
+      //props.onFind(props.items[e.target.children[0].children[0].value]);
+      alert(props.items[e.target.children[0].children[0].value]);
     } else {
       alert("No Such File");
     }
