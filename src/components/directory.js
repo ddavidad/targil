@@ -14,21 +14,20 @@ function Directory(props) {
     alert("unimplemented method : handleFileClick");
   }
 
-  function handleItemDelete(name){
-    props.onItemDelete(name)
+  function handleItemDelete(e){
+    props.onItemDelete(e)
   }
 
   function createItemList(){
     var items = [];
 
-    items = sortJsonArray(sortJsonArray(props.items, 'name', 'asc'), 'type', 'des').map((item, i) => item.type === "folder" ? 
+    items = sortJsonArray(sortJsonArray(props.item.children, 'name', 'asc'), 'type', 'des').map((item, i) => item.type === "folder" ? 
     (<FolderRow name={item.name}
     type={item.type}
     children={item.children}
     key={i}
     onRowClick={handleFolderClick}
     onDelete={handleItemDelete} />)
-    
     
     :
     

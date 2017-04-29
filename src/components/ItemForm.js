@@ -7,7 +7,8 @@ import Button from 'react-bootstrap/lib/Button';
 function ItemForm(props) {
 
   function onItemSubmit(e) {
-    var item = {
+    var item = 
+    {
       "type": e.target.children[1].children[0].value,
       "name": e.target.children[0].children[0].value,
     };

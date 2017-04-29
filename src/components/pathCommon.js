@@ -1,10 +1,10 @@
 import Path from 'path';
 
-export function getItem(root, path) {
+export function getItem(dir, path) {
     var steps = path
         .split(Path.sep)
         .filter(step => step !== "");
-    var item = root;
+    var item = dir;
     steps.forEach(function (step) {
 
         for (var i = 0; i < item.children.length; i++) {
@@ -32,7 +32,7 @@ export function goUp(path, steps) {
     return newPath + "/";
 }
 
-export function flatten(root) {
+export function flatten(dir) {
     var result = {};
     function recurse(cur, path) {
         if (cur !== null) {
@@ -45,6 +45,6 @@ export function flatten(root) {
                     : (path + cur.children[i].name));
             }
         }
-    recurse(root, "/");
+    recurse(dir, "/");
     return result;
 }

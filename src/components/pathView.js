@@ -22,7 +22,9 @@ function PathView(props) {
         .path
         .split("/")
         .filter((step) => step !== "")
-        .map((step, i) => <li key={i} onClick={handlePathClick}>{step}</li>)}
+        .map((step, i) => <li>
+          <Button key={i} onClick={handlePathClick}>{step}</Button>
+        </li>)}
     </ul>
   );
 }
