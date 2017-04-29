@@ -20,6 +20,7 @@ function PathView(props) {
       </li>
       {props
         .path
+        .trim()
         .split("/")
         .filter((step) => step !== "")
         .map((step, i) => <li>

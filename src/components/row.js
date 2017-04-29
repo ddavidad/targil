@@ -7,9 +7,13 @@ function Row(props) {
     props.onDelete(deleteBtn.target.parentElement.parentElement.children[0].innerText);
   }
 
+  function onRowClick(e) {
+    props.onRowClick(e.target.innerText);
+  }
+
   return (
     <tr key={props.key}>
-      <td onClick={props.onRowClick} onContextMenu={props.onContextClick}>{props.name}</td>
+      <td onClick={onRowClick} onContextMenu={props.onContextClick}>{props.name}</td>
       <td>{props.type}</td>
       <td>
         <Button onClick={handleDelete}>Delete</Button>

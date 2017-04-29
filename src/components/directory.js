@@ -6,37 +6,31 @@ import FileRow from './fileRow';
 
 function Directory(props) {
 
-  function handleFolderClick(e) {
-    props.onPathIncrement(e.target.innerText);
-  }
-
   function handleFileClick(increment) {
-    alert("unimplemented method : handleFileClick");
-  }
-
-  function handleItemDelete(e){
-    props.onItemDelete(e)
+    alert("TODO: random easter EGG");
   }
 
   function createItemList(){
     var items = [];
 
     items = sortJsonArray(sortJsonArray(props.item.children, 'name', 'asc'), 'type', 'des').map((item, i) => item.type === "folder" ? 
-    (<FolderRow name={item.name}
-    type={item.type}
-    children={item.children}
-    key={i}
-    onRowClick={handleFolderClick}
-    onDelete={handleItemDelete} />)
+    (<FolderRow 
+      name={item.name}
+      type={item.type}
+      children={item.children}
+      key={i}
+      onRowClick={props.onPathIncrement}
+      onDelete={props.onItemDelete} />)
     
     :
     
-    (<FileRow name={item.name}
-    type={item.type}
-    children={item.children}
-    key={i}
-    onRowClick={handleFileClick}
-    onDelete={handleItemDelete} 
+    (<FileRow 
+      name={item.name}
+      type={item.type}
+      children={item.children}
+      key={i}
+      onRowClick={handleFileClick}
+      onDelete={props.onItemDelete} 
     />));
 
     return items;

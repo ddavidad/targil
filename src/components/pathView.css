@@ -11,8 +11,3 @@ li {
 li:nth-child(1):after{
     content: ""
 }
-
-li::after {
-    content: " > ";
-
-}
